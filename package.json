@@ -1,0 +1,11 @@
+{
+  "name": "wetube_vinary",
+  "version": "1.0.0",
+  "description": "clone youtube",
+  "main": "index.js",
+  "author": "vinary",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
