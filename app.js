@@ -10,11 +10,12 @@ import routes from "./routers";
 
 const app = express();
 
-app.use(cookieParser());
-app.use(bodyParser.json());
+app.set("view engine", "pug");
+app.use(cookieParser()); // 회원 가입 로그인 등
+app.use(bodyParser.json()); // form 태그 body 데이터 전송 값 해석
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(helmet());
-app.use(morgan("dev"));
+app.use(helmet()); // 안전하게 만들어줌
+app.use(morgan("dev")); // logging
 
 app.use(routes.home, globalRouter);
 app.use(routes.users, userRouter);
