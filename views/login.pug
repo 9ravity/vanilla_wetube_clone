@@ -1,1 +1,9 @@
 extends layouts/main
+
+block content
+    .form-container
+        form(action=routers.login,method="post")
+            input(type="email",name="email",placeholder="Emial",required=true)
+            input(type="password",name="password",placeholder="password",required=true)
+            input(type="submit",name="Login")
+        include partials/socialLogin

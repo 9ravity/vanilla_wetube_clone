@@ -1,13 +1,37 @@
-export const join = (req, res) => res.send("join", { pageTitle: "USER JOIN" });
-export const login = (req, res) =>
-  res.send("login", { pageTitle: "USER LOGIN" });
-export const logout = (req, res) =>
-  res.send("logout", { pageTitle: "USER LOGOUT" });
+/* eslint-disable no-console */
+import routers from "../routers";
 
-export const users = (req, res) => res.send("users", { pageTitle: "USERS" });
+export const getJoin = (req, res) => {
+  res.render("join", { pageTitle: "USER JOIN" });
+};
+export const postJoin = (req, res) => {
+  console.log(`posjoin:${req.body}`);
+  const { name, eamil, password, password2 } = req.body;
+  if (password !== password2) {
+    res.status(400);
+    res.render("join", { pageTitle: "USER JOIN" });
+  } else {
+    // todo : 사용자 등록 -> login
+    res.redirect(routers.home);
+  }
+};
+export const getLogin = (req, res) =>
+  res.render("login", { pageTitle: "USER LOGIN" });
+export const postLogin = (req, res) => {
+  const { email, password } = req.body;
+
+  res.redirect(routers.home);
+};
+
+export const logout = (req, res) => {
+  // todo : logout
+  res.redirect(routers.home);
+};
+
+export const users = (req, res) => res.render("users", { pageTitle: "USERS" });
 export const userDetail = (req, res) =>
-  res.send("userDetail", { pageTitle: "USER DETAIL" });
+  res.render("userDetail", { pageTitle: "USER DETAIL" });
 export const editProfile = (req, res) =>
-  res.send("editProfile", { pageTitle: "EDIT PROFILE" });
+  res.render("editProfile", { pageTitle: "EDIT PROFILE" });
 export const changePassword = (req, res) =>
-  res.send("changePassword", { pageTitle: "CHANGE PASSWORD" });
+  res.render("changePassword", { pageTitle: "CHANGE PASSWORD" });
