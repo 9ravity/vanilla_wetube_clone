@@ -8,9 +8,9 @@ block content
             h4.profile__username=user.name
         if loggedUser && loggedUser.id === user.id
             .user-profile__btns
-                a(href=`/users${router.editProfile}`)
+                a(href=`/users${routers.editProfile}`)
                     button ✏️ Edit Profile
-                a(href=`/users${router.changePassword}`)
+                a(href=`/users${routers.changePassword}`)
                     button 🔒 Change Password
         .home-videos
             each item in user.videos 

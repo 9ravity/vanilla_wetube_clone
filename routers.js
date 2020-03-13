@@ -19,6 +19,10 @@ const VIDEO_DETAIL = "/:id";
 const EDIT_VIDEO = "/:id/edit";
 const DELETE_VIDEO = "/:id/delete";
 
+//facebook
+const FB = "/auth/facebook";
+const FB_CALLBACK = "/auth/facebook/callback";
+
 const routers = {
   home: HOME,
   join: JOIN,
@@ -63,7 +67,9 @@ const routers = {
     } else {
       return DELETE_VIDEO;
     }
-  }
+  },
+  facebook: FB,
+  facebookCallback: FB_CALLBACK
 };
 
 export default routers;

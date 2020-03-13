@@ -1,22 +1,22 @@
 header.header
     .header__wrapper
         .header__column
-            a(href=router.home)
+            a(href=routers.home)
                 i.fab.fa-youtube
         .header__column
-            form(action=router.search, method="get")
+            form(action=routers.search, method="get")
                 input(type="text", placeholder="Search by term...", name="term")
         .header__column
             ul
                 if !loggedUser
                     li
-                        a(href=router.join) Join
+                        a(href=routers.join) Join
                     li
-                        a(href=router.login) Log In
+                        a(href=routers.login) Log In
                 else 
                     li
-                        a(href=`/videos${router.upload}`) Upload
+                        a(href=`/videos${routers.upload}`) Upload
                     li
-                        a(href=router.me) Profile
+                        a(href=routers.me) Profile
                     li
-                        a(href=router.logout) Log Out
+                        a(href=routers.logout) Log Out
