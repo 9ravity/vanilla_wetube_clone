@@ -61,7 +61,10 @@ export const postFacebookLogin = (req, res) => {
 
 export const logout = (req, res) => {
   // todo : logout
-  res.redirect(routers.home);
+  req.logout(); // passport logout
+  req.session.save(function() {
+    res.redirect(routers.home);
+  });
 };
 
 export const users = (req, res) => res.render("users", { pageTitle: "USERS" });
@@ -69,9 +72,9 @@ export const userDetail = async (req, res) => {
   const {
     params: { id }
   } = req;
-
   try {
     const user = await User.findById({ _id: id });
+    console.log(user);
     res.render("userDetail", { pageTitle: "USER DETAIL", user });
   } catch (error) {
     res.redirect(routers.home);

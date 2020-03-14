@@ -10,7 +10,7 @@ import {
   facebookLogin,
   postFacebookLogin
 } from "../controllers/userController";
-import { onlyPublic } from "../middlewares";
+import { onlyPublic, onlyPrivate } from "../middlewares";
 import passport from "passport";
 
 const globalRouter = express.Router();
@@ -21,7 +21,7 @@ globalRouter.get(routers.login, onlyPublic, getLogin);
 globalRouter.post(routers.login, onlyPublic, postLogin);
 
 globalRouter.get(routers.home, home);
-globalRouter.get(routers.logout, onlyPublic, logout);
+globalRouter.get(routers.logout, onlyPrivate, logout);
 globalRouter.get(routers.search, search);
 
 globalRouter.get(routers.facebook, facebookLogin);
